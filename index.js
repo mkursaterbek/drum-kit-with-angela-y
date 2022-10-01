@@ -7,6 +7,7 @@ for( let i=0; i< numberOfDurmButtons; i++) {
     
         makeSound(buttonInnerHTML)
 
+        buttonAnimation(buttonInnerHTML)
     })
 }
 
@@ -14,6 +15,7 @@ for( let i=0; i< numberOfDurmButtons; i++) {
 
 document.addEventListener("keypress", function(event) { 
     makeSound(event.key)
+    buttonAnimation(event.key)
 })
 
 
@@ -63,6 +65,17 @@ function makeSound (key) {
 
     }
 }
+
+function buttonAnimation (currentKey) {
+    let activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed")
+    setTimeout(() => {
+        activeButton.classList.remove("pressed")
+        
+    }, 100);
+
+}
+
 
 
 // ****************************************************************************************************
